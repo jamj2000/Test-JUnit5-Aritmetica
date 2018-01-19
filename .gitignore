@@ -1,2 +1,3 @@
-/.nb-gradle/
+.nb-gradle/
+.gradle/
 build/
