@@ -38,7 +38,7 @@ public class UtilidadesTest {
     public void testOrdenar2Iguales() {
         for (int i = 0 ; i < n ; i++ ) {
             int n1 = (int)Math.random()*(max - min) + min + 1;
-            assertArrayEquals("2 números iguales", new int[]{ n1+4, n1, n1 } , Utilidades.ordenar( n1, n1, n1-3 ));
+            assertArrayEquals("2 números iguales", new int[]{ n1-3, n1, n1 } , Utilidades.ordenar( n1, n1, n1-3 ));
         }
     }
 
