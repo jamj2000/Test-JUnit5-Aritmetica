@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Ignore;
 import static org.junit.Assert.*;
@@ -15,7 +16,11 @@ public class UtilidadesTest {
     private int min;
     private int max;
     
-      
+    @BeforeClass
+    public static void setUpClass() { 
+        Utilidades u = new Utilidades ();   
+    }
+    
     @Before
     public void setUp() {
         // Aquí ponemos lo que deseamos ejecutar antes de iniciar cada test.
@@ -34,7 +39,7 @@ public class UtilidadesTest {
     }
 
 
-    @Test @Ignore   // Este test falla
+    @Test   // Este test falla con el método Utilidades.ordenar comentado 
     public void testOrdenar2Iguales() {
         for (int i = 0 ; i < n ; i++ ) {
             int n1 = (int)Math.random()*(max - min) + min + 1;
@@ -60,14 +65,8 @@ public class UtilidadesTest {
         }
     }
 
-    @After
-    public void tearDown(){
-        // Aquí ponemos lo que deseamos ejecutar al finalizar cada test.
-        // (Método vacío)
-    }
-
     
-    @Test @Ignore // Este test falla
+    @Test  // Este test falla con el método Utilidades.ordenar comentado 
     public void cobertura () {
         assertArrayEquals ("Caso 1, 2, 3", new int[]{1, 2, 3}, Utilidades.ordenar(1, 2, 3) );
         assertArrayEquals ("Caso 1, 3, 2", new int[]{1, 2, 3}, Utilidades.ordenar(1, 3, 2) );
@@ -77,7 +76,12 @@ public class UtilidadesTest {
         assertArrayEquals ("Caso 3, 2, 1", new int[]{1, 2, 3}, Utilidades.ordenar(3, 2, 1) );
         assertArrayEquals ("Caso 3, 1, 1", new int[]{1, 1, 3}, Utilidades.ordenar(3, 1, 1) ); // Este caso falla
         assertArrayEquals ("Caso 1, 1, 1", new int[]{1, 1, 1}, Utilidades.ordenar(1, 1, 1) );       
-
+    }
+    
+    @After
+    public void tearDown(){
+        // Aquí ponemos lo que deseamos ejecutar al finalizar cada test.
+        // (Método vacío)
     }
   
 }
