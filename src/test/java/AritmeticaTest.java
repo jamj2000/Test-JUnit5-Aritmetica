@@ -1,9 +1,15 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Ignore;
+import org.junit.BeforeClass;
 
 public class AritmeticaTest {
 
+    @BeforeClass
+    public static void setUpClass(){
+        Aritmetica a = new Aritmetica();
+    }
+    
     @Test
     public void testSuma() {
         // 4 casos de prueba
