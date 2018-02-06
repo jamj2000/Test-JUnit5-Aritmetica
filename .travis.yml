@@ -9,7 +9,7 @@ cache:
 before_install:
   - pip install --user codecov
 script:
-  - if [ -e ./gradlew ]; then ./gradlew jacocoTestReport;else gradle jacocoTestReport;fi
+  - gradle jacocoTestReport
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - codecov --file coverage/lcov.info --disable search
