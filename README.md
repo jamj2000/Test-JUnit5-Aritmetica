@@ -42,7 +42,7 @@ Dentro de **Utilidades** tenemos 1 métodos estático:
 
 Es necesario el uso del sistema de construcción (build) **gradle**. Si trabajamos con NetBeans deberemos instalar el plugin para gradle. 
 
-Asimismo, en el archivo *build.gradle*  añadiremos la línea *apply plugin: "jacoco"* (Java Code Coverage), para poder realizar cobertura de código.
+Asimismo, en el archivo [build.gradle](build.gradle) añadiremos la línea *apply plugin: "jacoco"* (Java Code Coverage), para poder realizar cobertura de código.
 
 
 ### Clases de prueba
