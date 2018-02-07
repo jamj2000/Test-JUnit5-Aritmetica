@@ -73,7 +73,7 @@ Es importante tener un archivo **`.travis.yml`** adecuado. Aquí tienes el utili
 
 Para realizar un análisis de la calidad del código (bugs, vulnerabilidades, *code smells* y demás) nos hemos registrado con nuestra cuenta de GitHub en https://sonarcloud.io, hemos generado un *token* y hemos añadido este proyecto. 
 
-Al principio del archivo **`build.gradle`** debemos escribir las líneas:
+Al principio del archivo [**`build.gradle`**](build.gradle) debemos escribir las líneas:
 
 ```
 plugins {
