@@ -1,8 +1,11 @@
 # DAW1-ED-Pruebas-Ejemplo1
 
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/organizations/jamj2000-github/projects)
 
 [![Build Status](https://travis-ci.org/jamj2000/DAW1-ED-Pruebas-Ejemplo1.svg?branch=master)](https://travis-ci.org/jamj2000/DAW1-ED-Pruebas-Ejemplo1)
 [![codecov](https://codecov.io/gh/jamj2000/DAW1-ED-Pruebas-Ejemplo1/branch/master/graph/badge.svg)](https://codecov.io/gh/jamj2000/DAW1-ED-Pruebas-Ejemplo1)
+![Sonar](https://sonarcloud.io/api/project_badges/measure?project=miapp&metric=alert_status)
+
 
 ![JDK 8](https://img.shields.io/badge/JDK-8-blue.svg)
 ![Gradle](https://img.shields.io/badge/gradle-2-blue.svg)
@@ -60,7 +63,38 @@ Se utilizan 2 servicios web:
 
 - [Travis-CI.org](https://travis-ci.org/jamj2000/DAW1-ED-Pruebas-Ejemplo1): para ***integración continua*** (construcción y paso de tests)
 - [Codecov.io](https://codecov.io/gh/jamj2000/DAW1-ED-Pruebas-Ejemplo1): para ***cobertura de código***
+- [Sonarcloud.io](https://sonarcloud.io/organizations/jamj2000-github/projects): para ***análisis de calidad de código***
 
 Es importante tener un archivo **`.travis.yml`** adecuado. Aquí tienes el utilizado en este proyecto:
 
 - [.travis.yml](.travis.yml)
+
+### Análisis de calidad de código
+
+Para realizar un análisis de la calidad del código (bugs, vulnerabilidades, *code smells* y demás) nos hemos registrado con nuestra cuenta de GitHub en https://sonarcloud.io, hemos generado un *token* y hemos añadido este proyecto. 
+
+Al principio del archivo **`build.gradle`** debemos escribir las líneas:
+
+```
+plugins {
+  id "org.sonarqube" version "2.6"
+}
+```
+Para realizar el análisis, ejecutamos la sentencia:
+
+```
+./gradlew sonarqube \
+  -Dsonar.organization=jamj2000-github \
+  -Dsonar.host.url=https://sonarcloud.io \
+  -Dsonar.login=<token>
+```
+> NOTA: Debemos sustituir *\<token\>* por el generado previamente.
+
+![Análisis de calidad del código](img/sonarqube-sonarcloud.png)
+
+
+
+
+
+
+
