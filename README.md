@@ -19,7 +19,7 @@
 
 
 
-## Pruebas unitarias en **Java** con **JUnit4** 
+## Pruebas unitarias en **Java** con **JUnit4** (Gradle)
 
 ### Código a testear (pruebas de unidad)
 
@@ -59,17 +59,17 @@ Las clases de prueba son:
 
 ### Servicios web utilizados
 
-Se utilizan 2 servicios web:
+Se utilizan 3 servicios web:
 
 - [Travis-CI.org](https://travis-ci.org/jamj2000/DAW1-ED-Pruebas-Ejemplo1): para ***integración continua*** (construcción y paso de tests)
 - [Codecov.io](https://codecov.io/gh/jamj2000/DAW1-ED-Pruebas-Ejemplo1): para ***cobertura de código***
-- [Sonarcloud.io](https://sonarcloud.io/organizations/jamj2000-github/projects): para ***análisis de calidad de código***
+- [Sonarcloud.io](https://sonarcloud.io/organizations/jamj2000-github/projects): para ***análisis de código***
 
 Es importante tener un archivo **`.travis.yml`** adecuado. Aquí tienes el utilizado en este proyecto:
 
 - [.travis.yml](.travis.yml)
 
-### Análisis de calidad de código
+### Análisis estático de código
 
 Para realizar un análisis de la calidad del código (bugs, vulnerabilidades, *code smells* y demás) nos hemos registrado con nuestra cuenta de GitHub en https://sonarcloud.io, hemos generado un *token* y hemos añadido este proyecto. 
 
@@ -80,7 +80,7 @@ plugins {
   id "org.sonarqube" version "2.6"
 }
 ```
-Para realizar el análisis, ejecutamos la sentencia:
+Para realizar el análisis, ejecutamos localmente la sentencia:
 
 ```
 ./gradlew sonarqube \
