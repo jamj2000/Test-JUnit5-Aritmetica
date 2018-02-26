@@ -32,13 +32,13 @@ El código de la aplicación lo componen 3 clases:
 La clase Main es la que hace uso de los métodos definidos en Aritmética y Utilidades.
 
 Dentro de **Aritmética** tenemos 4 métodos estáticos:
-- `suma`
-- `resta`
-- `multiplicacion`
-- `division`
+- `int suma            (int num1, int num2)`
+- `int resta           (int num1, int num2)`
+- `int multiplicacion  (int num1, int num2)`
+- `double division     (int num1, int num2)`
  
 Dentro de **Utilidades** tenemos 1 métodos estático:
-- `ordenar`  (para ordenar un array de 3 enteros)
+- `int [] ordenar (int num1, int num2, int num3)`  (para ordenar un array de 3 enteros)
 
 
 ### Requisitos
