@@ -3,8 +3,14 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+addons:
+  sonarcloud:
+    organization: "token" # the key of the org you chose at step #3
+    token:
+      secure: "M4/W2Qi4nLFNhIwC+72BmVxoTpi6RYrl0uTSbIMeBSWYnUZ/7gIbo4OJ1IeiC9q4V72hYls4vadsJp3mKzeqwyDvxNvER8TNOo4zGH8G2XLTByRb+RVWA4xejlz+FVS2TY21i3HkD0a0lKjSSkVxmJSQNJbx//Rla2p9OKfFaYCtr+fw7sLELGxdd6UMYzbfChq/kOLMzM+ENXg/XQfHp3TeMVQejA18IG1QXNr0Kee9+0oP1/j+QaHMH3S6as1Mh1zUtskN9VKNcNWeIZcVhfblz1lDf/Gi8mfuiJeQAghhNsceSUWd8gxZmda7JkQq+jeAwsz/bl90kPXqy+6I2RndsKTNXvKygA8H/lCWyXcVta8uOwSvYiXNi+ezmF/IogvGWAfKbipjkhQt7HArLyWLZhHQkZgJFvTJ9lmkCQfpwp+bCifkuVnl8lXb78AowHYNhzmv62Q1WtteAy0gVjEIaqdlrCOze4ndCY4y5kiejpBBv/vOTgVrBCjnGSBtSV99IMchS4izh941P+84RTeCdTsX/n7CiBLz2DEr9kf9zjKOWp+aCbgCiFRm+5SE+wXCkqRugcIqaGbX2A1k2cuDu7QfvXDjIG7SfjrFpz8W3MSKfSAXbwcne5mxmdIbZE1kM9hWhzavZvZ1lMnArZFM2YQIht+kXl72fQBR4ZU="
 script:
   - ./gradlew build jacocoTestReport
+  - sonar-scanner -X
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
