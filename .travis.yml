@@ -10,7 +10,7 @@ cache:
 #        secure: "VRe05jxHjBR9xWrr3eCYGYmb4l7zhLkLycEqlYnjaZWOv1zVL3uC0N44j4Q88h1ntZCszVPU0ng1QJKAyPRtgDEDRTRR8XMEkyylnAkj5DH8Y/5NgxHKCR4oXzHc4a5SjAPOjAluzfVBUcBpK5P7Gd1wMJ6XawiAeo/s/w09I4dJ+O6A0/uQdtxpKxWDmvsnZL+jIc7bBMADoyPJDUWVz1WIpoNfWrcszwdq0DKNz40RoURugVe2Rm4zVHS1QuXywKrtlNIC3MCXe915iKOMtfaCAPN7o9hUEAHE3csI6dEb8fYDZQOeW7OzTOS6EHD9ftg6XyP7dwX1dXRewSv1/nMIWJdKTLPwDkfApV28pIQKzwVtifS9alVI4LTzkeKMkJvn4BHi2rJW9h6EmQDrz7cx6zy+GCO6RzzrybqqBe76PtkNg2r3VdCw16Pw+f4m1qRt8bT7pIEAIkOObGIHCD8q1y6qSpREIK6M0CVaaBuHhA+SGt3Lyn8jbsweuP8j9bloRgpPJV9KgwsV0Lvck6zDBs4Bv522tGZJ3CJAMhEdD3DvVbkgMPRs3/KbJAE7SxT2Ppf3dPCncXRc8tlZYqbSflBhpCEfJxpxiWSxqBDbpAfTbbPZCrEVeWmNrjQ6IU0365RwM6/zXZuQph7/Nua8LxeyPTodC3mY0AneVTs="
 script:
   - ./gradlew build jacocoTestReport
-  - sonar-scanner -X
+#  - sonar-scanner -X
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
