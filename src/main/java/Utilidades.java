@@ -2,9 +2,9 @@
 public class Utilidades {
 
     public static int[] ordenar(int num1, int num2, int num3) {
-        
+
         /*  Este código no ordena bien. 
-        
+
         int[] ordenados = new int[3];
 
         if (num1 < num2 && num1 < num3) {
@@ -39,8 +39,8 @@ public class Utilidades {
         }
 
         return ordenados;
-   */     
-   
+   */
+
         int[] ordenados = new int[3];
 
         if (num1 <= num2 && num1 <= num3) {
@@ -70,11 +70,12 @@ public class Utilidades {
                 ordenados[1] = num1;
                 ordenados[2] = num2;
             }
-        } 
-        return ordenados;    
-        
-   
-        
+        }
+
+        return ordenados;
+	return ordenados;
+	return ordenados;
+
     }
 
 }
