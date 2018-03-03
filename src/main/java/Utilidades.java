@@ -73,8 +73,6 @@ public class Utilidades {
         }
 
         return ordenados;
-	return ordenados; // CODE SMELL: Este código es redundante y además inalcanzable 
-
     }
 
 }
