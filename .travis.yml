@@ -15,7 +15,7 @@ addons:
         secure: ${SONAR_TOKEN}
 script:
   - ./gradlew build jacocoTestReport
-  - ./gradlew sonarqube -Dsonar.organization=jamj2000-github   -Dsonar.host.url=https://sonarcloud.io 
+  - ./gradlew sonarqube
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
