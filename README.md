@@ -69,7 +69,7 @@ Es importante tener un archivo **`.travis.yml`** adecuado. Aquí tienes el utili
 
 - [.travis.yml](.travis.yml)
 
-### Análisis estático de código
+### Análisis estático de código con SonarQube
 
 Para realizar un análisis de la calidad del código (bugs, vulnerabilidades, *code smells* y demás) nos hemos registrado con nuestra cuenta de GitHub en https://sonarcloud.io, hemos generado un *token* y hemos añadido este proyecto. 
 
@@ -92,6 +92,51 @@ Para realizar el análisis, ejecutamos localmente la sentencia:
 
 ![Análisis de calidad del código](img/sonarqube-sonarcloud.png)
 
+
+### Análisis estático de código con FindBugs en Netbeans
+
+Una forma más sencilla de realizar análisis estático de código es utilizar el plugin **FindBugs** de Netbeans.
+
+Deberemos primeramente instalar dicho plugin en el caso de no tenerlo ya instalado.
+
+Para ello seguimos los siguientes pasos: **Herramientas -> Plugins**
+
+![Herramientas -> Plugins](img/findbugs1.png)
+
+En la pestaña **Plugins disponibles** buscamos *findbugs*
+
+![Buscando plugin FindBugs](img/findbugs2.png)
+
+Si no lo tenemos instalado, nos aparecerá en la parte izquierda para instalarlo. Lo marcamos y pulsamos en instalar. Después seguimos el asistente.
+
+![Pulsar en siguiente](img/findbugs3.png)
+
+Una vez instalado el plugin, ya podremos hacer uso de él para realizar **análisis estático de código**.
+
+Para ello pulsamos en **Fuente -> Inspect**.
+
+![](img/inspect1.0.png)
+
+En **Scope** podemos escoger entre cuatro ámbitos, de más general a más específico:
+
+- Open Projects
+- Current Project
+- Current Package
+- Current File
+
+![Scope](img/inspect1.1.png)
+
+En **Configuration** podemos escoger entre distintas opciones. Seleccionaremos **All Analyzers**.
+
+![All Analizers](img/inspect1.2.png)
+
+A continuación se muestra Netbeans con la pestaña **Inspector** para la clase `AritmeticaTest`.
+
+![Clase AritmeticaTest](img/inspect2.png)
+
+A continuación se muestra Netbeans con la pestaña **Inspector** para todos los proyectos abiertos.
+
+![Todos los proyectos abiertos](img/inspect3.png)
 
 
 
