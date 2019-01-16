@@ -28,7 +28,7 @@ public class AritmeticaTest {
         assertEquals("Resta (-3,-3) debe ser  0",  0, Aritmetica.resta(-3,-3));
     }
 
-    @Ignore
+    @Test
     public void testMultiplicacion() {
         // 4 casos de prueba
         assertEquals("Multiplicacion ( 2, 3) debe ser  6",  6, Aritmetica.multiplicacion( 2, 3));
