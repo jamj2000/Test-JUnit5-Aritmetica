@@ -1,3 +1,5 @@
+// José Antonio Muñoz Jiménez - Junio 2018
+
 public class Aritmetica {
 
   public static int suma (int sumando1, int sumando2) {
