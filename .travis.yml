@@ -1,22 +1,22 @@
 language: java
-before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-cache:
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-addons:
-  sonarcloud:
-#    organization: "jamj2000-github"
-    organization: ${SONAR_ORGANIZATION}
-    token:
-#        secure: "I6n1LohYLLzJtc0dWL4/6wdQ1FYDYrZaFTFkSSAnUJAE6mm2HYMYCu6+IH0u7x7A6OTryfrCKOs6VjbEp3+mpN8o8DLvmvMWYwTRKY1wb6HikiMTcM4h6RgVcYe1HKCAdrTpkQ2mteWgQV2RtrbTW3Q/61z3ZL4CeuHQJdDDjxUxmZZ1j+3R0DR2NzkSwXtQGbxtmTWVpFWLBBmgMyVjPi1K65wzVQmhJer1NaLY2+prPn/Vm+ub+UkGi1bhgSs/eVM8eket6bUk3wb20GAZlkP8qu4M2iv1pjuQriLUnBhii8/CydY7pPnl5SWNV8M0F+lA8Ltz7T8RvR9UaUijNPV556UgSjmuNsCaQJGv1pkvk/a5dRed3xu0TAzdk/+9J4/5QM6P9ROM2YISqEogB65sYNWK82YyKqlKd7N5Ty0FXfxRRZ8lyyk+dRWOwnSZZj+qlbxVft8l98kyvOhGSF3Oof+gpQW8m0w/XNwTWY/EQ0gh19BW8QN5aQGM7o8pti/NHOxcsVZtR7ZrDXtiIvuqRUX4iUNGCVtpNb3m6fBusTgrXsjGFuAVeC/NK7eu2DXW/+sbXU5ohRezRnsB+e/HR51PHu4HVO8edpy/UmoMTBd9qnD/eenA27I0vNxRHLIfxTbk+qTny431GGyvKvpx1ZHLrCkArmhhnMmX56Q="
-        secure: ${SONAR_TOKEN}
+#before_cache:
+#  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+#  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+#cache:
+#  directories:
+#    - $HOME/.gradle/caches/
+#    - $HOME/.gradle/wrapper/
+#addons:
+#  sonarcloud:
+##    organization: "jamj2000-github"
+#    organization: ${SONAR_ORGANIZATION}
+#    token:
+##        secure: "I6n1LohYLLzJtc0dWL4/6wdQ1FYDYrZaFTFkSSAnUJAE6mm2HYMYCu6+IH0u7x7A6OTryfrCKOs6VjbEp3+mpN8o8DLvmvMWYwTRKY1wb6HikiMTcM4h6RgVcYe1HKCAdrTpkQ2mteWgQV2RtrbTW3Q/61z3ZL4CeuHQJdDDjxUxmZZ1j+3R0DR2NzkSwXtQGbxtmTWVpFWLBBmgMyVjPi1K65wzVQmhJer1NaLY2+prPn/Vm+ub+UkGi1bhgSs/eVM8eket6bUk3wb20GAZlkP8qu4M2iv1pjuQriLUnBhii8/CydY7pPnl5SWNV8M0F+lA8Ltz7T8RvR9UaUijNPV556UgSjmuNsCaQJGv1pkvk/a5dRed3xu0TAzdk/+9J4/5QM6P9ROM2YISqEogB65sYNWK82YyKqlKd7N5Ty0FXfxRRZ8lyyk+dRWOwnSZZj+qlbxVft8l98kyvOhGSF3Oof+gpQW8m0w/XNwTWY/EQ0gh19BW8QN5aQGM7o8pti/NHOxcsVZtR7ZrDXtiIvuqRUX4iUNGCVtpNb3m6fBusTgrXsjGFuAVeC/NK7eu2DXW/+sbXU5ohRezRnsB+e/HR51PHu4HVO8edpy/UmoMTBd9qnD/eenA27I0vNxRHLIfxTbk+qTny431GGyvKvpx1ZHLrCkArmhhnMmX56Q="
+#        secure: ${SONAR_TOKEN}
 script:
   - ./gradlew build jacocoTestReport
-#  - ./gradlew sonarqube  #  -Dsonar.organization=jamj2000-github   -Dsonar.host.url=https://sonarcloud.io 
-after_success:
-#  - bash <(curl -s https://codecov.io/bash)
+##  - ./gradlew sonarqube  #  -Dsonar.organization=jamj2000-github   -Dsonar.host.url=https://sonarcloud.io 
+#after_success:
+##  - bash <(curl -s https://codecov.io/bash)
 
 
