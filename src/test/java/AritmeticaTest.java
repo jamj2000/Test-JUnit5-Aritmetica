@@ -13,7 +13,7 @@ public class AritmeticaTest {
     @Test
     public void testSuma() {
         // 4 casos de prueba
-        assertEquals("Suma ( 2, 3) debe ser  5",  6, Aritmetica.suma( 2, 3));
+        assertEquals("Suma ( 2, 3) debe ser  5",  5, Aritmetica.suma( 2, 3));
         assertEquals("Suma (-2, 2) debe ser  0",  0, Aritmetica.suma(-2, 2));
         assertEquals("Suma ( 0,-3) debe ser -3", -3, Aritmetica.suma( 0,-3));
         assertEquals("Suma (-3,-3) debe ser -6", -6, Aritmetica.suma(-3,-3));
