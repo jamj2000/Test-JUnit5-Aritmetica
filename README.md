@@ -69,7 +69,7 @@ Es importante tener un archivo **`.travis.yml`** adecuado. Aquí tienes el utili
 
 - [.travis.yml](.travis.yml)
 
-### Análisis estático de código con SonarQube
+### Análisis estático de código con SonarQube en Sonarcloud.io
 
 Para realizar un análisis de la calidad del código (bugs, vulnerabilidades, *code smells* y demás) nos hemos registrado con nuestra cuenta de GitHub en https://sonarcloud.io, hemos generado un *token* y hemos añadido este proyecto. 
 
@@ -91,6 +91,33 @@ Para realizar el análisis, ejecutamos localmente la sentencia:
 > NOTA: Debemos sustituir *\<token\>* por el generado previamente.
 
 ![Análisis de calidad del código](img/sonarqube-sonarcloud.png)
+
+
+### Análisis estático de código con SonarQube en equipo local
+
+Si no deseamos utilizar el servidor anterior, podemos lanzar nuestro propio servidor sonarqube local. Para ello haremos uso de un contenedor de Docker.
+
+> NOTA: Es necesario tener instalado previamente el software para docker.
+>   Puedes consultar como hacerlo en https://github.com/jamj2000/docker
+
+Iniciamos el contenedor con el servidor sonarqube. 
+
+```bash
+docker  run  -d  -p 9000:9000  --name sonarqube  sonarqube:lts
+```
+El servicio será accesible a través del puerto 9000. Tardará unos minutitos en estar disponible.
+
+Para eliminar construcciones previas, volver a construir, pasar tests y realizar análisis estático con sonarqube, ejecutamos desde la carpeta donde tenemos el archivo de construcción `build.gradle` el siguiente comando:
+
+```bash
+gradle  clean  sonarqube
+```
+
+Visitamos la URL `http://localhost:9000`.
+
+![Análisis de calidad del código](img/sonarqube-local-1.png)
+
+![Análisis de calidad del código](img/sonarqube-local-2.png)
 
 
 ### Análisis estático de código con FindBugs en Netbeans
