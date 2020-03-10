@@ -105,6 +105,7 @@ Iniciamos el contenedor con el servidor sonarqube.
 ```bash
 docker  run  -d  -p 9000:9000  --name sonarqube  sonarqube:lts
 ```
+
 El servicio será accesible a través del puerto 9000. Tardará unos minutitos en estar disponible.
 
 Para eliminar construcciones previas, volver a construir, pasar tests y realizar análisis estático con sonarqube, ejecutamos desde la carpeta donde tenemos el archivo de construcción `build.gradle` el siguiente comando:
@@ -112,6 +113,17 @@ Para eliminar construcciones previas, volver a construir, pasar tests y realizar
 ```bash
 gradle  clean  sonarqube
 ```
+
+> NOTA: Es posible que nos aparezca el siguiente mensaje:
+>
+>       SonarScanner will require Java 11+ to run starting in SonarQube 8.x
+>
+> Así que si disponemos de una versión de Java inferior a la 11, deberemos usar SonarQube con versión inferior a la 8.
+> Por ejemplo para usar la version 7.9-community de SonarQube ejecutaremos:
+>
+>       docker  rm   -f  sonarqube    # eliminamos contenedor anterior
+>       docker  run  -d  -p 9000:9000  --name sonarqube  sonarqube:7.9-community
+
 
 Visitamos la URL `http://localhost:9000`.
 
