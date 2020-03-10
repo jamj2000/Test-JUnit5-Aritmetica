@@ -118,11 +118,11 @@ gradle  clean  sonarqube
 >
 >       SonarScanner will require Java 11+ to run starting in SonarQube 8.x
 >
-> Así que si disponemos de una versión de Java inferior a la 11, deberemos usar SonarQube con versión inferior a la 8.
-> Por ejemplo para usar la version 7.9-community de SonarQube ejecutaremos:
+> Así que si disponemos de una versión de Java inferior a la 11, deberemos usar SonarQube versión inferior a 8.
+> Por ejemplo para usar la version 7.1-alpine de SonarQube ejecutaremos:
 >
 >       docker  rm   -f  sonarqube    # eliminamos contenedor anterior
->       docker  run  -d  -p 9000:9000  --name sonarqube  sonarqube:7.9-community
+>       docker  run  -d  -p 9000:9000  --name sonarqube  sonarqube:7.1-alpine
 
 
 Visitamos la URL `http://localhost:9000`.
