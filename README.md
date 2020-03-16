@@ -135,8 +135,31 @@ Visitamos la URL `http://localhost:9000`. Puede tardar un tiempo en cargar.
 
 ![Análisis de calidad del código](img/sonarqube-local-2.png)
 
+Es aconsejable realizar `Log in`, puesto que así podremos realizar tareas de edición. 
 
-Es aconsejable realizar `Log in`, puesto que así podremos realizar tareas de edición. Por defecto existe un usuario `admin`con contraseña `admin`. Son las credenciales que utilzaremos.
+Por defecto existe un usuario **`admin`** con contraseña **`admin`**. Son las credenciales que utilzaremos. En la ventana emergente que aparece pulsar en `Skip this tutorial`.
+
+Ahora, si pulsamos sobre el nombre de la aplicación, podremos ver un resumen.
+
+![Análisis de calidad del código](img/sonarqube-local-3.png)
+
+Ahora mismo, los apartados que tienen especial interés para nosotros son los de **`Code Smells`** y **`Coverage`**. El primero nos indica las prácticas de codificación que no se ajustan del todo a las recomendaciones y el segundo nos muestra la cobertura de código conseguida con los tests diseñados.
+
+![Análisis de calidad del código](img/sonarqube-local-4.png)
+
+Hay 2 tipos de `code smell`. Los *`major`* y los *`minor`*, siendo los primeros los que pueden tener más relevancia.
+
+En el apartado de `coverage` podemos comprobar el % de cobertura de nuestros tests.
+
+![Análisis de calidad del código](img/sonarqube-local-5.png)
+
+También es posible examinar archivo por archivo. La línea verde que aparece a la izquierda es la cobertura realizada.
+
+Aquí también podemos gestionar nuestros `code smells`. 
+
+![Análisis de calidad del código](img/sonarqube-local-6.png)
+
+
 
 ### Análisis estático de código con FindBugs en Netbeans
 
