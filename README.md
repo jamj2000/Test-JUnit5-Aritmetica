@@ -105,13 +105,10 @@ Iniciamos el contenedor con el servidor sonarqube.
 ```bash
 docker  run  -d  -p 9000:9000  --name sonarqube  sonarqube:lts
 ```
-
-El servicio será accesible a través del puerto 9000. Tardará unos minutitos en estar disponible.
-
-Para eliminar construcciones previas, volver a construir, pasar tests y realizar análisis estático con sonarqube, ejecutamos desde la carpeta donde tenemos el archivo de construcción `build.gradle` el siguiente comando:
+Podemos ver si el servicio se ha iniciado correctamente con el comando:
 
 ```bash
-gradle  clean  sonarqube
+docker  ps
 ```
 
 > NOTA: Es posible que nos aparezca el siguiente mensaje:
@@ -124,13 +121,22 @@ gradle  clean  sonarqube
 >       docker  rm   -f  sonarqube    # eliminamos contenedor anterior
 >       docker  run  -d  -p 9000:9000  --name sonarqube  sonarqube:7.1-alpine
 
+El servicio será accesible a través del puerto 9000. Tardará unos minutitos en estar disponible.
 
-Visitamos la URL `http://localhost:9000`.
+Para eliminar construcciones previas, volver a construir, pasar tests y realizar análisis estático con sonarqube, ejecutamos desde la carpeta donde tenemos el archivo de construcción `build.gradle` el siguiente comando:
+
+```bash
+gradle  clean  sonarqube
+```
+
+Visitamos la URL `http://localhost:9000`. Puede tardar un tiempo en cargar.
 
 ![Análisis de calidad del código](img/sonarqube-local-1.png)
 
 ![Análisis de calidad del código](img/sonarqube-local-2.png)
 
+
+Es aconsejable realizar `Log in`, puesto que así podremos realizar tareas de edición. Por defecto existe un usuario `admin`con contraseña `admin`. Son las credenciales que utilzaremos.
 
 ### Análisis estático de código con FindBugs en Netbeans
 
