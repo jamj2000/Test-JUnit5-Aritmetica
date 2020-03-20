@@ -160,8 +160,33 @@ Aquí también podemos gestionar nuestros `code smells`.
 ![Análisis de calidad del código](img/sonarqube-local-6.png)
 
 
+### Análisis estático de código en Netbeans
+
+Otra forma, mucho más limitada, de realizar *análisis estático de código* desde Netbeans es ir al menú a **`Fuente`** -> **`Inspect`**.
+
+![Inspect](img/inspect1.0.png)
+
+En **`Configuration`** seleccionamos `Netbeans Java Hits`.
+
+Y luego pulsamos en el botón `Inspect`.
+
+![Análisis estático del código](img/Inspect-Netbeans-Java-Hints.png)
+
+Se realizará una inspección muy básica de todos los proyectos que tenemos abiertos. Seleccionando nuestro proyecto, podemos inspeccionar los distintos archivos, tanto los que están en el *paquete de fuentes* como los que están en *paquete de tests*.
+
+Por ejemplo, a continuación se muestra la clase `AritmeticaTest.java` donde se muestra que hay una sentencia `import` que no se usa. La mayoría de los avisos se refieren a la falta de documentación de Java (javadoc).
+
+![Análisis estático del código](img/Inspect-Netbeans-Java-Hints-2.png)
+
+Cómo puedes ver es una herramienta bastante limitada. Por tanto, lo más aconsejable es usar **Sonarqube** para este fin, que es una herramienta mucho más potente.
+
 
 ### Análisis estático de código con FindBugs en Netbeans
+
+**ATENCIÓN: FindBugs es un proyecto que, al parecer, está más muerto que vivo. El plugin para Netbeans 8.2 no está disponible.**
+
+**El texto que se muestra a continuación será eliminado en un futuro próximo. Disponible aún con fines históricos.**  
+
 
 Una forma más sencilla de realizar análisis estático de código es utilizar el plugin **FindBugs** de Netbeans.
 
