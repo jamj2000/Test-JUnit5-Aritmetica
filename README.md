@@ -18,8 +18,27 @@
 [![HitCount](http://hits.dwyl.com/jamj2000/DAW1-ED-Pruebas-Ejemplo1.svg)](http://hits.dwyl.com/jamj2000/DAW1-ED-Pruebas-Ejemplo1)
 
 
-
 ## Pruebas unitarias en **Java** con **JUnit4** (Gradle)
+
+### Requisitos previos
+
+Este proyecto se ha desarrollado en Netbeans con el sistema de construcción **Gradle**. Por tanto es necesario tener instalado el plugin para `Gradle` instalado en Netbeans.
+
+Además, si queremos hacer cobertura de código, deberemos editar el archivo `build.gradle`. Debemos insertar las siguientes líneas:
+
+```
+apply plugin: 'jacoco'
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+```
+Esto permitirá de **gradle** pueda generar informes de cobertura de código.
+
 
 ### Código a testear (pruebas de unidad)
 
@@ -41,13 +60,6 @@ Dentro de **Utilidades** tenemos 1 métodos estático:
 - `int [] ordenar (int num1, int num2, int num3)`  (para ordenar un array de 3 enteros)
 
 
-### Requisitos
-
-Es necesario el uso del sistema de construcción (build) **gradle**. Si trabajamos con NetBeans deberemos instalar el plugin para gradle. 
-
-Asimismo, en el archivo [build.gradle](build.gradle) añadiremos la línea *apply plugin: "jacoco"* (Java Code Coverage), para poder realizar cobertura de código.
-
-
 ### Clases de prueba
 
 Las clases de prueba son:
@@ -56,46 +68,62 @@ Las clases de prueba son:
 - [AritméticaTest](src/test/java/AritmeticaTest.java)
 - [UtilidadesTest](src/test/java/UtilidadesTest.java)
 
+Se ha comprobado también el constructor por defecto de cada clase, con la finalidad de que el informe de cobertura fuera del 100%.
 
-### Servicios web utilizados
 
-Se utilizan 3 servicios web:
+### Ejecución de pruebas
 
-- [Travis-CI.org](https://travis-ci.org/jamj2000/DAW1-ED-Pruebas-Ejemplo1): para ***integración continua*** (construcción y paso de tests)
-- [Codecov.io](https://codecov.io/gh/jamj2000/DAW1-ED-Pruebas-Ejemplo1): para ***cobertura de código***
-- [Sonarcloud.io](https://sonarcloud.io/organizations/jamj2000-github/projects): para ***análisis de código***
+Para ejecutar las pruebas sobre el código, ejecutaremos en el terminal de texto:
+
+```
+gradle  test
+```
+
+### Informe de cobertura
+
+Para generar el informe de cobertura ejecutamos en el terminal de texto:
+
+```
+gradle  jacocoTestReport
+```
+
+Este comando debe ejecutarse desde la misma carpeta en la cuál tenemos el archivo `build.gradle`.
+
+Para ver el informe de cobertura generado en formato HTML, ejecutamos desde el terminal de texto:
+
+```
+firefox   build/jacocoHtml/index.html
+```
+
+
+## Integración continua
+
+Para integración continua (***construcción y paso de tests***) se hara uso de **[travis-CI.org](https://travis-ci.org/jamj2000/DAW1-ED-Pruebas-Ejemplo1)** 
 
 Es importante tener un archivo **`.travis.yml`** adecuado. Aquí tienes el utilizado en este proyecto:
 
 - [.travis.yml](.travis.yml)
 
-### Análisis estático de código con SonarQube en Sonarcloud.io
+En este archivo indicamos la plataforma necesaria para nuestra aplicación y los comandos necesarios para lanzar los tests. 
 
-Para realizar un análisis de la calidad del código (bugs, vulnerabilidades, *code smells* y demás) nos hemos registrado con nuestra cuenta de GitHub en https://sonarcloud.io, hemos generado un *token* y hemos añadido este proyecto. 
 
-Al principio del archivo [**`build.gradle`**](build.gradle) debemos escribir las líneas:
 
-```
-plugins {
-  id "org.sonarqube" version "2.6"
-}
-```
-Para realizar el análisis, ejecutamos localmente la sentencia:
+**Ejemplo en travis-ci.org**
 
-```
-./gradlew sonarqube \
-  -Dsonar.organization=jamj2000-github \
-  -Dsonar.host.url=https://sonarcloud.io \
-  -Dsonar.login=<token>
-```
-> NOTA: Debemos sustituir *\<token\>* por el generado previamente.
+![travis-ci](img/travis-ci.png)
 
-![Análisis de calidad del código](img/sonarqube-sonarcloud.png)
 
+## Análisis estático de código
+
+Tenemos varias formas de realizar análisis estático de código:
+
+- SonarQube en equipo local
+- SonarQube en SonarCloud.io
+- 
 
 ### Análisis estático de código con SonarQube en equipo local
 
-Si no deseamos utilizar el servidor anterior, podemos lanzar nuestro propio servidor sonarqube local. Para ello haremos uso de un contenedor de Docker.
+Para realizar un análisis de la calidad del código (bugs, vulnerabilidades, *code smells* y demás) recomiendo usar **SonarQube** en el equipo local. Podemos lanzar nuestro propio servidor sonarqube local. Para ello haremos uso de un contenedor de **Docker**.
 
 > NOTA: Es necesario tener instalado previamente el software para docker.
 >   Puedes consultar como hacerlo en https://github.com/jamj2000/docker
@@ -158,6 +186,32 @@ También es posible examinar archivo por archivo. La línea verde que aparece a 
 Aquí también podemos gestionar nuestros `code smells`. 
 
 ![Análisis de calidad del código](img/sonarqube-local-6.png)
+
+
+### Usando SonarQube en Sonarcloud.io
+
+- [Sonarcloud.io](https://sonarcloud.io/organizations/jamj2000-github/projects)
+
+Nos hemos registrado con nuestra cuenta de GitHub en https://sonarcloud.io, hemos generado un *token* y hemos añadido este proyecto. 
+
+Al principio del archivo [**`build.gradle`**](build.gradle) debemos escribir las líneas:
+
+```
+plugins {
+  id "org.sonarqube" version "2.6"
+}
+```
+Para realizar el análisis, ejecutamos localmente la sentencia:
+
+```
+./gradlew sonarqube \
+  -Dsonar.organization=jamj2000-github \
+  -Dsonar.host.url=https://sonarcloud.io \
+  -Dsonar.login=<token>
+```
+> NOTA: Debemos sustituir *\<token\>* por el generado previamente.
+
+![Análisis de calidad del código](img/sonarqube-sonarcloud.png)
 
 
 ### Análisis estático de código en Netbeans
