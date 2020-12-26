@@ -26,7 +26,7 @@ Este proyecto se ha desarrollado en Netbeans con el sistema de construcción **G
 
 Además, si queremos hacer cobertura de código, deberemos editar el archivo `build.gradle`. Debemos insertar las siguientes líneas:
 
-```
+```groovy
 plugins {
   id 'jacoco'
   // ...
