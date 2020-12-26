@@ -25,9 +25,9 @@
 
 El código de la aplicación lo componen 3 clases:
 
-- Main  (Clase principal)
-- Aritmética
-- Utilidades
+- [Main](src/main/java/Main.java)  (Clase principal)
+- [Aritmética](src/main/java/Aritmetica.java)
+- [Utilidades](src/main/java/Utilidades.java)
 
 La clase Main es la que hace uso de los métodos definidos en Aritmética y Utilidades.
 
@@ -52,9 +52,9 @@ Asimismo, en el archivo [build.gradle](build.gradle) añadiremos la línea *appl
 
 Las clases de prueba son:
 
-- MainTest
-- AritméticaTest
-- UtilidadesTest
+- [MainTest](src/test/java/MainTest.java)
+- [AritméticaTest](src/test/java/AritmeticaTest.java)
+- [UtilidadesTest](src/test/java/UtilidadesTest.java)
 
 
 ### Servicios web utilizados
