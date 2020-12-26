@@ -27,7 +27,10 @@ Este proyecto se ha desarrollado en Netbeans con el sistema de construcción **G
 Además, si queremos hacer cobertura de código, deberemos editar el archivo `build.gradle`. Debemos insertar las siguientes líneas:
 
 ```
-apply plugin: 'jacoco'
+plugins {
+  id 'jacoco'
+  // ...
+}
 
 jacocoTestReport {
     reports {
@@ -209,8 +212,9 @@ Nos hemos registrado con nuestra cuenta de GitHub en https://sonarcloud.io, hemo
 Al principio del archivo [**`build.gradle`**](build.gradle) debemos escribir las líneas:
 
 ```
-plugins {
-  id "org.sonarqube" version "2.6"
+plugins {  
+  id 'org.sonarqube' version '2.6'
+  // ...
 }
 ```
 Para realizar el análisis, ejecutamos localmente la sentencia:
