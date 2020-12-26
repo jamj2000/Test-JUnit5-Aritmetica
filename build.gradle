@@ -1,10 +1,17 @@
-plugins {
-  id "org.sonarqube" version "2.6"
-}
+//plugins {
+//  id "org.sonarqube" version "2.6"
+//}
 
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'jacoco'
+//apply plugin: 'java'
+//apply plugin: 'application'
+//apply plugin: 'jacoco'
+
+plugins {
+  id 'java'
+  id 'application'
+  id 'jacoco'
+  id 'org.sonarqube' version '2.6'
+}
 
 repositories {
     jcenter()  
