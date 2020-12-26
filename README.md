@@ -106,9 +106,18 @@ Es importante tener un archivo **`.travis.yml`** adecuado. Aquí tienes el utili
 
 En este archivo indicamos la plataforma necesaria para nuestra aplicación y los comandos necesarios para lanzar los tests. 
 
+**Ejemplo simplificado**
+
+```yaml
+language: java
+jdk:
+  - openjdk8
+script:
+  - gradle  test  run
+```
 
 
-**Ejemplo en travis-ci.org**
+**Ejemplo de integración con travis-ci.org**
 
 ![travis-ci](img/travis-ci.png)
 
@@ -119,7 +128,10 @@ Tenemos varias formas de realizar análisis estático de código:
 
 - SonarQube en equipo local
 - SonarQube en SonarCloud.io
-- 
+- NetBeans mediante Fuente/Inspect
+- NetBeans mediante plugin FindBugs (está obsoleto)
+
+Es preferible usar la primera forma.
 
 ### Análisis estático de código con SonarQube en equipo local
 
@@ -284,9 +296,4 @@ A continuación se muestra Netbeans con la pestaña **Inspector** para la clase 
 A continuación se muestra Netbeans con la pestaña **Inspector** para todos los proyectos abiertos.
 
 ![Todos los proyectos abiertos](img/inspect3.png)
-
-
-
-
-
 
