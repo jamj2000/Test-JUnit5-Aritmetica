@@ -7,9 +7,11 @@
 [![Sonar](https://sonarcloud.io/api/project_badges/measure?project=miapp&metric=alert_status)](https://sonarcloud.io/organizations/jamj2000-github/projects)
 
 
-![JDK 8](https://img.shields.io/badge/JDK-8-blue.svg)
-![Gradle](https://img.shields.io/badge/gradle-4-blue.svg)
-![JUnit 4](https://img.shields.io/badge/JUnit-4-blue.svg)
+![JDK 11](https://img.shields.io/badge/JDK-8-blue.svg)
+![Gradle 6](https://img.shields.io/badge/gradle-6-blue.svg)
+![JUnit 5](https://img.shields.io/badge/JUnit-4-blue.svg)
+![Netbeans 12](https://img.shields.io/badge/Netbeans-12-blue.svg)
+
 
 [![GitHub issues](https://img.shields.io/github/issues/jamj2000/DAW1-ED-Pruebas-Ejemplo1.svg)](https://github.com/jamj2000/DAW1-ED-Pruebas-Ejemplo1/issues) 
 [![GitHub forks](https://img.shields.io/github/forks/jamj2000/DAW1-ED-Pruebas-Ejemplo1.svg)](https://github.com/jamj2000/DAW1-ED-Pruebas-Ejemplo1/network)
@@ -22,7 +24,27 @@
 
 ### Requisitos previos
 
-Este proyecto se ha desarrollado en Netbeans con el sistema de construcción **Gradle**. Por tanto es necesario tener instalado el plugin para `Gradle` instalado en Netbeans.
+Este proyecto se ha desarrollado en Netbeans con el sistema de construcción **Gradle**. Por tanto es necesario tener instalado el plugin para `Gradle` instalado en Netbeans. En Netbeans 12.0 LTS ya está instalado.
+
+![Plugin de gradle](img/gradle-plugin.png)
+
+Puede descargarse Netbeans 12.0 LTS desde:
+
+- https://netbeans.apache.org/download/nb120/nb120.html
+
+
+En Linux, podemos instalar la última versión de Gradle haciendo uso de SDKMAN. Para instalar SDKMAN:
+
+```console
+curl -s "https://get.sdkman.io" | bash
+```
+
+Después, para instalar `gradle`:
+
+```console
+sdk install gradle
+source "/home/usuario/.sdkman/bin/sdkman-init.sh"
+```
 
 Además, si queremos hacer cobertura de código, deberemos editar el archivo `build.gradle`. Debemos insertar las siguientes líneas:
 
@@ -34,8 +56,6 @@ plugins {
 
 jacocoTestReport {
     reports {
-        xml.enabled false
-        csv.enabled false
         html.destination file("${buildDir}/jacocoHtml")
     }
 }
@@ -47,9 +67,9 @@ Esto permitirá de **gradle** pueda generar informes de cobertura de código.
 
 El código de la aplicación lo componen 3 clases:
 
-- [Main](src/main/java/Main.java)  (Clase principal)
-- [Aritmética](src/main/java/Aritmetica.java)
-- [Utilidades](src/main/java/Utilidades.java)
+- [Main](src/main/java/ejemplo/Main.java)  (Clase principal)
+- [Aritmética](src/main/java/ejemplo/Aritmetica.java)
+- [Utilidades](src/main/java/ejemplo/Utilidades.java)
 
 La clase Main es la que hace uso de los métodos definidos en Aritmética y Utilidades.
 
@@ -67,9 +87,9 @@ Dentro de **Utilidades** tenemos 1 métodos estático:
 
 Las clases de prueba son:
 
-- [MainTest](src/test/java/MainTest.java)
-- [AritméticaTest](src/test/java/AritmeticaTest.java)
-- [UtilidadesTest](src/test/java/UtilidadesTest.java)
+- [MainTest](src/test/java/ejemplo/MainTest.java)
+- [AritméticaTest](src/test/java/ejemplo/AritmeticaTest.java)
+- [UtilidadesTest](src/test/java/ejemplo/UtilidadesTest.java)
 
 Se ha comprobado también el constructor por defecto de cada clase, con la finalidad de que el informe de cobertura fuera del 100%.
 

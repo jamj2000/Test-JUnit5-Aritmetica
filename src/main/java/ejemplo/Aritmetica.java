@@ -1,4 +1,5 @@
-// José Antonio Muñoz Jiménez - Junio 2018
+// José Antonio Muñoz Jiménez - Junio 2021
+package ejemplo;
 
 public class Aritmetica {
 

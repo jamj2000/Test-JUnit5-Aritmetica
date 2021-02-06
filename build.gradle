@@ -2,30 +2,40 @@ plugins {
   id 'java'
   id 'application'
   id 'jacoco'
-  id 'org.sonarqube' version '2.6'
+  id 'org.barfuin.gradle.jacocolog' version '1.2.4' // para mostrar cobertura en el terminal
 }
 
+mainClassName = 'ejemplo.Main'
+
 repositories {
-    jcenter()  
+    //jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(platform('org.junit:junit-bom:5.7.1'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
 }
 
 jar {
     manifest {
-       attributes ('Main-Class': 'Main')
+       attributes ('Main-Class': "${mainClassName}")
     }
 }
 
-dependencies {
-    testCompile 'junit:junit:4.12'         
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+  }
+//  finalizedBy jacocoTestReport // se genera informe después de ejecutar los tests
 }
 
 jacocoTestReport {
+    dependsOn test 
     reports {
-        xml.enabled true
-        csv.enabled false
         html.destination file("${buildDir}/jacocoHtml")
     }
 }
 
-mainClassName = 'Main'
 
