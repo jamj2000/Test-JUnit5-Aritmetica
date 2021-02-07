@@ -7,9 +7,9 @@
 [![Sonar](https://sonarcloud.io/api/project_badges/measure?project=miapp&metric=alert_status)](https://sonarcloud.io/organizations/jamj2000-github/projects)
 
 
-![JDK 11](https://img.shields.io/badge/JDK-8-blue.svg)
+![JDK 11](https://img.shields.io/badge/JDK-11-blue.svg)
 ![Gradle 6](https://img.shields.io/badge/gradle-6-blue.svg)
-![JUnit 5](https://img.shields.io/badge/JUnit-4-blue.svg)
+![JUnit 5](https://img.shields.io/badge/JUnit-5-blue.svg)
 ![Netbeans 12](https://img.shields.io/badge/Netbeans-12-blue.svg)
 
 
@@ -20,7 +20,7 @@
 [![HitCount](http://hits.dwyl.com/jamj2000/DAW1-ED-Pruebas-Ejemplo1.svg)](http://hits.dwyl.com/jamj2000/DAW1-ED-Pruebas-Ejemplo1)
 
 
-## Pruebas unitarias en **Java** con **JUnit4** (Gradle)
+## Pruebas unitarias en **Java** con **JUnit5** (Gradle)
 
 ### Requisitos previos
 
@@ -35,20 +35,31 @@ Puede descargarse Netbeans 12.0 LTS desde:
 
 En Linux, podemos instalar la última versión de Gradle haciendo uso de SDKMAN. Para instalar SDKMAN:
 
-```console
+```bash
 curl -s "https://get.sdkman.io" | bash
 ```
 
 Después, para instalar `gradle`:
 
-```console
+```bash
 sdk install gradle
 source "/home/usuario/.sdkman/bin/sdkman-init.sh"
 ```
 
+La versión de gradle usada ha sido la versión 6.8.2
+
 ### Inicio de proyecto
 
 Vamos a generar un nuevo proyecto con nombre `app` y paquete `ejemplo` que para contener las clases. Además los tests se realizaran con JUnit Jupiter (JUnit 5).
+
+gradle init  --project-name app  --type java-application
+
+Seleccionamos:
+```
+<1>       Groovy
+<4>       JUnit Jupiter
+<package> ejemplo
+```
 
 ![gradle init](img/gradle-init.png)
 
