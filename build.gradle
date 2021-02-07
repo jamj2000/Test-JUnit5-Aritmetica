@@ -8,8 +8,8 @@ plugins {
 mainClassName = 'ejemplo.Main'
 
 repositories {
-    //jcenter()
-    mavenCentral()
+    jcenter()
+    //mavenCentral()
 }
 
 dependencies {

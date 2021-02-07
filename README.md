@@ -46,21 +46,80 @@ sdk install gradle
 source "/home/usuario/.sdkman/bin/sdkman-init.sh"
 ```
 
-Además, si queremos hacer cobertura de código, deberemos editar el archivo `build.gradle`. Debemos insertar las siguientes líneas:
+### Inicio de proyecto
+
+Vamos a generar un nuevo proyecto con nombre `app` y paquete `ejemplo` que para contener las clases. Además los tests se realizaran con JUnit Jupiter (JUnit 5).
+
+![gradle init](img/gradle-init.png)
+
+La estructura de archivos generada es la siguiente:
+
+![tree](img/tree.png)
+
+Las clases que vienen por defecto no nos interesan, por tanto, las eliminaremos:
+
+```bash
+rm  src/main/java/ejemplo/*.java
+rm  src/test/java/ejemplo/*.java
+```
+
+### Configuración personalizada
+
+Haremos uso del siguiente archivo [`build.gradle`](build.gradle):
 
 ```groovy
 plugins {
+  id 'java'
+  id 'application'
   id 'jacoco'
-  // ...
+  id 'org.barfuin.gradle.jacocolog' version '1.2.4' // para mostrar cobertura en el terminal
+}
+
+mainClassName = 'ejemplo.Main'
+
+repositories {
+    jcenter()
+    //mavenCentral()
+}
+
+dependencies {
+    testImplementation(platform('org.junit:junit-bom:5.7.1'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
+}
+
+jar {
+    manifest {
+       attributes ('Main-Class': "${mainClassName}")
+    }
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+  }
+//  finalizedBy jacocoTestReport // se genera informe después de ejecutar los tests
 }
 
 jacocoTestReport {
+    dependsOn test 
     reports {
         html.destination file("${buildDir}/jacocoHtml")
     }
 }
 ```
+
+La cobertura de código la obtenemos con el plugin `jacoco`.
+
+Para ver la cobertura de código conseguida con las pruebas (tests), ejecutamos:
+
+```bash
+gradle  clean  jacocoTestReport
+```
+
 Esto permitirá de **gradle** pueda generar informes de cobertura de código.
+
+A continuación pasamos a ver el código de nuestra aplicación y los tests realizados.
 
 
 ### Código a testear (pruebas de unidad)
@@ -134,7 +193,7 @@ En este archivo indicamos la plataforma necesaria para nuestra aplicación y los
 ```yaml
 language: java
 jdk:
-  - openjdk8
+  - openjdk11
 script:
   - gradle  test  run
 ```
