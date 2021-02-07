@@ -111,12 +111,6 @@ jacocoTestReport {
 
 La cobertura de código la obtenemos con el plugin `jacoco`.
 
-Para ver la cobertura de código conseguida con las pruebas (tests), ejecutamos:
-
-```bash
-gradle  clean  jacocoTestReport
-```
-
 Esto permitirá de **gradle** pueda generar informes de cobertura de código.
 
 A continuación pasamos a ver el código de nuestra aplicación y los tests realizados.
@@ -157,8 +151,10 @@ Se ha comprobado también el constructor por defecto de cada clase, con la final
 
 Para ejecutar las pruebas sobre el código, ejecutaremos en el terminal de texto:
 
-```
-gradle  test
+Para ver la cobertura de código conseguida con las pruebas (tests), ejecutaremos:
+
+```bash
+gradle  clean  test
 ```
 
 ### Informe de cobertura
