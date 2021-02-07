@@ -1,10 +1,6 @@
 # DAW1-ED-Pruebas-Ejemplo1
 
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io)
-
 [![Build Status](https://travis-ci.org/jamj2000/DAW1-ED-Pruebas-Ejemplo1.svg?branch=master)](https://travis-ci.org/jamj2000/DAW1-ED-Pruebas-Ejemplo1)
-[![codecov](https://codecov.io/gh/jamj2000/DAW1-ED-Pruebas-Ejemplo1/branch/master/graph/badge.svg)](https://codecov.io/gh/jamj2000/DAW1-ED-Pruebas-Ejemplo1)
-[![Sonar](https://sonarcloud.io/api/project_badges/measure?project=miapp&metric=alert_status)](https://sonarcloud.io/organizations/jamj2000-github/projects)
 
 
 ![JDK 11](https://img.shields.io/badge/JDK-11-blue.svg)
@@ -24,7 +20,7 @@
 
 ### Requisitos previos
 
-Este proyecto se ha desarrollado en Netbeans con el sistema de construcción **Gradle**. Por tanto es necesario tener instalado el plugin para `Gradle` instalado en Netbeans. En Netbeans 12.0 LTS ya está instalado.
+Este proyecto se ha desarrollado en Netbeans con el sistema de construcción **Gradle**. Por tanto, si trabajamos con algún IDE como Netbeans, es necesario tener instalado el plugin para `Gradle`. En Netbeans 12.0 LTS ya está instalado.
 
 ![Plugin de gradle](img/gradle-plugin.png)
 
@@ -32,6 +28,8 @@ Puede descargarse Netbeans 12.0 LTS desde:
 
 - https://netbeans.apache.org/download/nb120/nb120.html
 
+
+Aunque este proyecto se puede trabajar y testear desde un IDE como Netbeans, en este documento no se explica este caso, sino la forma de realizar todo el proceso desde un terminal de texto. 
 
 En Linux, podemos instalar la última versión de Gradle haciendo uso de SDKMAN. Para instalar SDKMAN:
 
@@ -84,6 +82,7 @@ plugins {
   id 'application'
   id 'jacoco'
   id 'org.barfuin.gradle.jacocolog' version '1.2.4' // para mostrar cobertura en el terminal
+  id 'org.sonarqube' version '2.6'
 }
 
 mainClassName = 'ejemplo.Main'
@@ -202,7 +201,7 @@ language: java
 jdk:
   - openjdk11
 script:
-  - gradle  test  run
+  - gradle jacocoTestReport
 ```
 
 
@@ -217,8 +216,6 @@ Tenemos varias formas de realizar análisis estático de código:
 
 - SonarQube en equipo local
 - SonarQube en SonarCloud.io
-- NetBeans mediante Fuente/Inspect
-- NetBeans mediante plugin FindBugs (está obsoleto)
 
 Es preferible usar la primera forma.
 
@@ -315,75 +312,4 @@ Para realizar el análisis, ejecutamos localmente la sentencia:
 
 ![Análisis de calidad del código](img/sonarqube-sonarcloud.png)
 
-
-### Análisis estático de código en Netbeans
-
-Otra forma, mucho más limitada, de realizar *análisis estático de código* desde Netbeans es ir al menú a **`Fuente`** -> **`Inspect`**.
-
-![Inspect](img/inspect1.0.png)
-
-En **`Configuration`** seleccionamos `Netbeans Java Hits`.
-
-Y luego pulsamos en el botón `Inspect`.
-
-![Análisis estático del código](img/Inspect-Netbeans-Java-Hints.png)
-
-Se realizará una inspección muy básica de todos los proyectos que tenemos abiertos. Seleccionando nuestro proyecto, podemos inspeccionar los distintos archivos, tanto los que están en el *paquete de fuentes* como los que están en *paquete de tests*.
-
-Por ejemplo, a continuación se muestra la clase `AritmeticaTest.java` donde se muestra que hay una sentencia `import` que no se usa. La mayoría de los avisos se refieren a la falta de documentación de Java (javadoc).
-
-![Análisis estático del código](img/Inspect-Netbeans-Java-Hints-2.png)
-
-Cómo puedes ver es una herramienta bastante limitada. Por tanto, lo más aconsejable es usar **Sonarqube** para este fin, que es una herramienta mucho más potente.
-
-
-### Análisis estático de código con FindBugs en Netbeans
-
-**ATENCIÓN: FindBugs es un proyecto que, al parecer, está más muerto que vivo. El plugin para Netbeans 8.2 no está disponible.**
-
-**El texto que se muestra a continuación será eliminado en un futuro próximo. Disponible aún con fines históricos.**  
-
-
-Una forma más sencilla de realizar análisis estático de código es utilizar el plugin **FindBugs** de Netbeans.
-
-Deberemos primeramente instalar dicho plugin en el caso de no tenerlo ya instalado.
-
-Para ello seguimos los siguientes pasos: **Herramientas -> Plugins**
-
-![Herramientas -> Plugins](img/findbugs1.png)
-
-En la pestaña **Plugins disponibles** buscamos *findbugs*
-
-![Buscando plugin FindBugs](img/findbugs2.png)
-
-Si no lo tenemos instalado, nos aparecerá en la parte izquierda para instalarlo. Lo marcamos y pulsamos en instalar. Después seguimos el asistente.
-
-![Pulsar en siguiente](img/findbugs3.png)
-
-Una vez instalado el plugin, ya podremos hacer uso de él para realizar **análisis estático de código**.
-
-Para ello pulsamos en **Fuente -> Inspect**.
-
-![](img/inspect1.0.png)
-
-En **Scope** podemos escoger entre cuatro ámbitos, de más general a más específico:
-
-- Open Projects
-- Current Project
-- Current Package
-- Current File
-
-![Scope](img/inspect1.1.png)
-
-En **Configuration** podemos escoger entre distintas opciones. Seleccionaremos **All Analyzers**.
-
-![All Analizers](img/inspect1.2.png)
-
-A continuación se muestra Netbeans con la pestaña **Inspector** para la clase `AritmeticaTest`.
-
-![Clase AritmeticaTest](img/inspect2.png)
-
-A continuación se muestra Netbeans con la pestaña **Inspector** para todos los proyectos abiertos.
-
-![Todos los proyectos abiertos](img/inspect3.png)
 
