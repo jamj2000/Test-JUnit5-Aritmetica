@@ -20,7 +20,7 @@
 
 ### Requisitos previos
 
-Este proyecto se ha desarrollado en Netbeans con el sistema de construcción **Gradle**. Por tanto, si trabajamos con algún IDE como Netbeans, es necesario tener instalado el plugin para `Gradle`. En Netbeans 12.0 LTS ya está instalado.
+Este proyecto se ha desarrollado con el sistema de construcción **Gradle**. Si trabajamos con algún IDE como Netbeans, es necesario tener instalado el plugin para `Gradle`. En Netbeans 12.0 LTS ya está instalado.
 
 ![Plugin de gradle](img/gradle-plugin.png)
 
@@ -121,7 +121,7 @@ jacocoTestReport {
 
 La cobertura de código la obtenemos con el plugin `jacoco`.
 
-Esto permitirá de **gradle** pueda generar informes de cobertura de código.
+El análisis estático de código lo obtenemos con el plugin `org.sonarqube`.
 
 A continuación pasamos a ver el código de nuestra aplicación y los tests realizados.
 
