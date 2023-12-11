@@ -1,4 +1,4 @@
-# DAW1-ED-Pruebas-Ejemplo1
+# Test-JUnit5-Aritmetica
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io)
 
