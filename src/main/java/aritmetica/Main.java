@@ -1,4 +1,6 @@
-// José Antonio Muñoz Jiménez - Junio 2018
+package aritmetica;
+
+// José Antonio Muñoz Jiménez - 2018 - 2023
 
 import java.util.Arrays;
 
