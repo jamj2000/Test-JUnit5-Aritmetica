@@ -2,14 +2,12 @@
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io)
 
-[![Build Status](https://travis-ci.org/jamj2000/DAW1-ED-Pruebas-Ejemplo1.svg?branch=master)](https://travis-ci.org/jamj2000/DAW1-ED-Pruebas-Ejemplo1)
 [![codecov](https://codecov.io/gh/jamj2000/DAW1-ED-Pruebas-Ejemplo1/branch/master/graph/badge.svg)](https://codecov.io/gh/jamj2000/DAW1-ED-Pruebas-Ejemplo1)
-[![Sonar](https://sonarcloud.io/api/project_badges/measure?project=miapp&metric=alert_status)](https://sonarcloud.io/organizations/jamj2000-github/projects)
 
 
-![JDK 8](https://img.shields.io/badge/JDK-8-blue.svg)
-![Gradle](https://img.shields.io/badge/gradle-4-blue.svg)
-![JUnit 4](https://img.shields.io/badge/JUnit-4-blue.svg)
+![JDK 17](https://img.shields.io/badge/JDK-17-blue.svg)
+![Gradle 8](https://img.shields.io/badge/gradle-8-blue.svg)
+![JUnit 5](https://img.shields.io/badge/JUnit-5-blue.svg)
 
 [![GitHub issues](https://img.shields.io/github/issues/jamj2000/DAW1-ED-Pruebas-Ejemplo1.svg)](https://github.com/jamj2000/DAW1-ED-Pruebas-Ejemplo1/issues) 
 [![GitHub forks](https://img.shields.io/github/forks/jamj2000/DAW1-ED-Pruebas-Ejemplo1.svg)](https://github.com/jamj2000/DAW1-ED-Pruebas-Ejemplo1/network)
@@ -18,38 +16,20 @@
 [![HitCount](http://hits.dwyl.com/jamj2000/DAW1-ED-Pruebas-Ejemplo1.svg)](http://hits.dwyl.com/jamj2000/DAW1-ED-Pruebas-Ejemplo1)
 
 
-## Pruebas unitarias en **Java** con **JUnit4** (Gradle)
+## Pruebas unitarias en **Java** con **JUnit5** (Gradle)
 
 ### Requisitos previos
 
-Este proyecto se ha desarrollado en Netbeans con el sistema de construcción **Gradle**. Por tanto es necesario tener instalado el plugin para `Gradle` instalado en Netbeans.
-
-Además, si queremos hacer cobertura de código, deberemos editar el archivo `build.gradle`. Debemos insertar las siguientes líneas:
-
-```groovy
-plugins {
-  id 'jacoco'
-  // ...
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled false
-        csv.enabled false
-        html.destination file("${buildDir}/jacocoHtml")
-    }
-}
-```
-Esto permitirá de **gradle** pueda generar informes de cobertura de código.
+Este proyecto se ha desarrollado en Netbeans con el sistema de construcción **Gradle**. Por tanto es necesario tener instalado el plugin para `Gradle` instalado en IntelliJ IDEA.
 
 
 ### Código a testear (pruebas de unidad)
 
 El código de la aplicación lo componen 3 clases:
 
-- [Main](src/main/java/Main.java)  (Clase principal)
-- [Aritmética](src/main/java/Aritmetica.java)
-- [Utilidades](src/main/java/Utilidades.java)
+- [Main](src/main/java/aritmetica/Main.java)  (Clase principal)
+- [Aritmética](src/main/java/aritmetica/Aritmetica.java)
+- [Utilidades](src/main/java/aritmetica/Utilidades.java)
 
 La clase Main es la que hace uso de los métodos definidos en Aritmética y Utilidades.
 
@@ -67,9 +47,9 @@ Dentro de **Utilidades** tenemos 1 métodos estático:
 
 Las clases de prueba son:
 
-- [MainTest](src/test/java/MainTest.java)
-- [AritméticaTest](src/test/java/AritmeticaTest.java)
-- [UtilidadesTest](src/test/java/UtilidadesTest.java)
+- [MainTest](src/test/java/aritmetica/MainTest.java)
+- [AritméticaTest](src/test/java/aritmetica/AritmeticaTest.java)
+- [UtilidadesTest](src/test/java/aritmetica/UtilidadesTest.java)
 
 Se ha comprobado también el constructor por defecto de cada clase, con la finalidad de que el informe de cobertura fuera del 100%.
 
