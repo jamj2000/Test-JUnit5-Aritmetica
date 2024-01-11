@@ -1,6 +1,6 @@
 package aritmetica;
 
-// José Antonio Muñoz Jiménez - 2018 - 2023
+// José Antonio Muñoz Jiménez - 2018 - 2024
 
 public class Utilidades {
 
