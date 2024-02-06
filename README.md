@@ -199,7 +199,11 @@ Para realizar el análisis, ejecutamos localmente la sentencia:
 
 ### Análisis estático de código en IntelliJ IDEA
 
+![inspect code](assets/inspect-code.png)
 
+![analyze](assets/analyze.png)
+
+![inspect results](assets/inspect-results.png)
 
 ### Análisis estático de código en Netbeans
 
