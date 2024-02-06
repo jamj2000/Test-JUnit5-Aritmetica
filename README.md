@@ -1,10 +1,5 @@
 # Test-JUnit5-Aritmetica
 
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io)
-
-[![codecov](https://codecov.io/gh/jamj2000/DAW1-ED-Pruebas-Ejemplo1/branch/master/graph/badge.svg)](https://codecov.io/gh/jamj2000/DAW1-ED-Pruebas-Ejemplo1)
-
-
 ![JDK 17](https://img.shields.io/badge/JDK-17-blue.svg)
 ![Gradle 8](https://img.shields.io/badge/gradle-8-blue.svg)
 ![JUnit 5](https://img.shields.io/badge/JUnit-5-blue.svg)
@@ -111,6 +106,7 @@ Tenemos varias formas de realizar análisis estático de código:
 
 - SonarQube en equipo local
 - SonarQube en SonarCloud.io
+- Intellij mediante Code/Inspect Code...
 - NetBeans mediante Fuente/Inspect
 - NetBeans mediante plugin FindBugs (está obsoleto)
 
@@ -199,6 +195,10 @@ Para realizar el análisis, ejecutamos localmente la sentencia:
 > NOTA: Debemos sustituir *\<token\>* por el generado previamente.
 
 ![Análisis de calidad del código](img/sonarqube-sonarcloud.png)
+
+
+### Análisis estático de código en IntelliJ IDEA
+
 
 
 ### Análisis estático de código en Netbeans
